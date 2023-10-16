@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  task_type: one
+  description: MyText
+  tak_date: 2023-10-16
+
+two:
+  user: two
+  task_type: two
+  description: MyText
+  tak_date: 2023-10-16
