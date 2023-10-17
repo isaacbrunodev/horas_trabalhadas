@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :users do
+    resources :time_logs
+    resources :project_memberships
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :projects do
+    resources :task_types do
+      resources :time_logs
+    end
+    resources :project_memberships
+  end
+
+  # Rotas de fallback (caso nenhuma outra rota corresponda)
+  get ':controller(/:action(/:id(.:format)))'
 end
