@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_16_183137) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_18_222016) do
+  create_table "migrations", force: :cascade do |t|
+    t.string "fix_typo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "project_memberships", force: :cascade do |t|
     t.date "joined", null: false
     t.date "leaved"
