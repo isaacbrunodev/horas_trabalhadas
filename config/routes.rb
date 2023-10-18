@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     end
     resources :project_memberships
   end
-  root :controller=>"projects"
+
+  root to: 'projects#index'
 
   # Rotas de fallback (caso nenhuma outra rota corresponda)
   get ':controller(/:action(/:id(.:format)))'
