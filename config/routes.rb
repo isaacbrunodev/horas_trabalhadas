@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :summary_reports
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'

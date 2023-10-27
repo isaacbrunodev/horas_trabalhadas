@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_18_222016) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_224931) do
   create_table "migrations", force: :cascade do |t|
     t.string "fix_typo"
     t.datetime "created_at", null: false
@@ -35,6 +35,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_222016) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_projects_on_name", unique: true
+  end
+
+  create_table "summary_reports", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "task_type_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_summary_reports_on_project_id"
+    t.index ["task_type_id"], name: "index_summary_reports_on_task_type_id"
+    t.index ["user_id"], name: "index_summary_reports_on_user_id"
   end
 
   create_table "task_types", force: :cascade do |t|
@@ -67,4 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_222016) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "summary_reports", "projects"
+  add_foreign_key "summary_reports", "task_types"
+  add_foreign_key "summary_reports", "users"
 end
