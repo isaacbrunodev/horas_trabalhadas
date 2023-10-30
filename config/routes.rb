@@ -1,23 +1,13 @@
 Rails.application.routes.draw do
-  resources :summary_reports
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  resources :sessions 
-  resources :users do
-    resources :time_logs
-    resources :project_memberships
+  resources :summary_reports, as: "relatorio_simples", path_names: { new: "novo", show: "visualizar" }
+  resources :sessions, as: "sessao", path_names: { new: "nova" }
+  resources :users, as: "usuarios", path_names: { new: "novo", edit: "ver" } do
+    resources :time_logs, as: "registro_de_horas", path_names: { new: "novo", edit: "ver" }
+  end
+  resources :projects, as: "projetos", path_names: { new: "novo", edit: "ver" } do
+    resources :task_types, as: "tipos_de_tarefas", path_names: { new: "novo", edit: "ver" }
+    resources :project_memberships, as: "associacao", path_names: { new: "nova", edit: "ver" }
   end
 
-  resources :projects do
-    resources :task_types do
-      resources :time_logs
-    end
-    resources :project_memberships
-  end
-
-  root to: 'projects#index'
-
-  # Rotas de fallback (caso nenhuma outra rota corresponda)
-  get ':controller(/:action(/:id(.:format)))'
+  root "projects#index"
 end
