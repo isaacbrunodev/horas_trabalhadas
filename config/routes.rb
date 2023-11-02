@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :project_memberships, as: "associacao", path_names: { new: "nova", edit: "ver" }
   end
 
-  root "projects#index"
+  root "projects#show"
 end
