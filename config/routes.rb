@@ -1,9 +1,7 @@
-# config/routes.rb
 Rails.application.routes.draw do
   resources :summary_reports, as: "relatorio_simples", path_names: { new: "novo", show: "visualizar" }
 
-  # Rota para sessions
-  resources :sessions, as: "sessao", path_names: { new: "nova" }
+  resources :sessions
 
   resources :users, as: "usuarios", path_names: { new: "novo", edit: "ver" } do
     resources :time_logs, as: "registro_de_horas", path_names: { new: "novo", edit: "ver" }
@@ -14,5 +12,5 @@ Rails.application.routes.draw do
     resources :project_memberships, as: "associacao", path_names: { new: "nova", edit: "ver" }
   end
 
-  root "project_memberships#index" # Redireciona para a ação index de ProjectMembershipsController
+  root "project_memberships#index"
 end
