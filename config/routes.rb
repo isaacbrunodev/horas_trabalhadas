@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
-  resources :summary_reports, as: "relatorio_simples", path_names: { new: "novo", show: "visualizar" }
-
   resources :sessions
 
-  resources :users, as: "usuarios", path_names: { new: "novo", edit: "ver" } do
-    resources :time_logs, as: "registro_de_horas", path_names: { new: "novo", edit: "ver" }
+  resources :users do
+    resources :time_logs
+    resources :project_memberships
   end
 
-  resources :projects, as: "projetos", path_names: { new: "novo", edit: "ver" } do
-    resources :task_types, as: "tipos_de_tarefas", path_names: { new: "novo", edit: "ver" }
-    resources :project_memberships, as: "associacao", path_names: { new: "nova", edit: "ver" }
+  resources :projects do
+    resources :task_types do
+      resources :time_logs
+    end
+    resources :project_memberships
   end
+# Adicione a rota personalizada para o login aqui
+post '/login', to: 'sessions#create'
+  
+root to: "projects#index"
 
-  root "project_memberships#index"
+  # Você pode definir outras rotas personalizadas aqui, se necessário.
 end
