@@ -1,3 +1,4 @@
+# config/routes.rb
 Rails.application.routes.draw do
   resources :sessions
 
@@ -12,10 +13,9 @@ Rails.application.routes.draw do
     end
     resources :project_memberships
   end
-# Adicione a rota personalizada para o login aqui
-post '/login', to: 'sessions#create'
-  
-root to: "projects#index"
 
-  # Você pode definir outras rotas personalizadas aqui, se necessário.
+  # Correção na rota para o login
+  post '/login', to: 'sessions#create', as: :login
+  
+  root to: "projects#index"
 end
