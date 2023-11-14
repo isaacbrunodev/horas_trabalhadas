@@ -1,6 +1,5 @@
-# config/routes.rb
 Rails.application.routes.draw do
-  resources :sessions
+  resources :sessions, only: [:new, :create]  # Apenas as rotas necessárias para o login
 
   resources :users do
     resources :time_logs
@@ -14,8 +13,8 @@ Rails.application.routes.draw do
     resources :project_memberships
   end
 
-  # Correção na rota para o login
+  # Rota para o login (não é mais necessário 'get /sessions/new' neste caso)
   post '/login', to: 'sessions#create', as: :login
-  
+
   root to: "projects#index"
 end
