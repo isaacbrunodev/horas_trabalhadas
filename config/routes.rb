@@ -13,9 +13,7 @@ Rails.application.routes.draw do
     resources :project_memberships
   end
 
-  # Rota para o login (não é mais necessário 'get /sessions/new' neste caso)
   post '/login', to: 'sessions#create', as: :login
-  # Adicione a rota para o logout
   delete '/logout', to: 'sessions#destroy', as: :logout
   root to: "projects#index"
 end
