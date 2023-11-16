@@ -15,5 +15,5 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create', as: :login
   delete '/logout', to: 'sessions#destroy', as: :logout
-  root to: "projects#index"
+  root to: "sessions#new"  # Alterado para apontar para a ação index
 end
