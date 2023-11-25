@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :time_logs
     resources :project_memberships
+    get 'new_registro_de_horas', to: 'time_logs#new_registro_de_horas'
+    end
   end
 
   resources :projects do
