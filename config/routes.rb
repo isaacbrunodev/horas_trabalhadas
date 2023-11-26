@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :sessions, only: [:new, :create] 
+  resources :sessions, only: [:new, :create]
 
   resources :users do
-    resources :time_logs, except: [:new]
-    get 'new_registro_de_horas', to: 'time_logs#new_registro_de_horas', on: :member
+    resources :time_logs, only: [:new, :create, :index]
+    member do
+      get 'new_registro_de_horas'
+    end
     resources :project_memberships
   end
 
