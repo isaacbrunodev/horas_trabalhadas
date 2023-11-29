@@ -1,24 +1,7 @@
-# README
+## HORAS TRABALHADAS
+<h4 align="center"> 
+	🚧 Em construção... 🚧
+</h4>
+## 💻 Sobre o projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+O projeto "Horas Trabalhadas" é uma aplicação web desenvolvida em Ruby on Rails para gerenciamento de horas trabalhadas , parecido com um relógio de ponto. Ele oferece funcionalidades como autenticação de usuários, associação a projetos, registro e edição de horas trabalhadas. Os usuários podem criar projetos, associar-se a eles e registrar o tempo dedicado a cada tarefa. A aplicação utiliza conceitos como modelos, controladores e visualizações do Rails.
